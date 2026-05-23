@@ -1,11 +1,13 @@
 name: docker-release
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - stable
+      - develop
     tags:
       - '*'
+
 
 jobs:
   docker-build:
