@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+# Sets a higher Regexp timeout for the assets:precompile step, then runs rake.
+Regexp.timeout = 120
+exec Gem.bin_path('rake', 'rake'), 'assets:precompile'
