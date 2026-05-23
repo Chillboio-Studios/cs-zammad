@@ -72,6 +72,8 @@ RUN if [ -z "${COMMIT_SHA}" ]; then \
   echo 'Updated build information in VERSION:'; \
   cat VERSION
 
+RUN sudo apt-get install -y libimlib2-dev
+
 # Don't require Redis or Postgres (use fake DATABASE_URL to make Rails validation happy).
 RUN touch db/schema.rb && \
     ZAMMAD_SAFE_MODE=1 DATABASE_URL=postgresql://zammad:/zammad bundle exec rake assets:precompile
